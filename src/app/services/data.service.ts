@@ -41,12 +41,4 @@ export class DataService {
     return this.characters;
   } 
 
-  async filterByHaki(haki_id)
-  {
-    this.characters = [];
-    const characterHaki = await fetch(`http://gagandeep.alwaysdata.net/onepiece/characters?haki_id=${haki_id}`);
-    this.characters = await characterHaki.json();
-    return this.characters;
-  } 
-
 }
