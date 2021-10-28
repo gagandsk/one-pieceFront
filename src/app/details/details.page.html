@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>{{ characterInformation.name }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-card>
+    <ion-img [src]="characterInformation.img"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{characterInformation.name}}</ion-card-title>
+      <ion-card-subtitle><span>{{characterInformation.bounty}}</span></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p id="quote">{{characterInformation.quote}}</p>
+      <div class="card-body">
+        <span id="status">Status: {{characterInformation.status}}</span>
+        <div id="power">
+          <span>Devil Fruit: {{characterInformation.devil_fruit}}</span>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button id="back" routerLink="/" color="warning">
+    <span>Go Back</span>
+  </ion-button>
+
+</ion-content>

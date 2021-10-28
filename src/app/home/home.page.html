@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button id="menu-button" autoHide="false" (click)="slideMenu()"></ion-menu-button>
+    </ion-buttons>
+    <ion-title id="title">
+      One Piece
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-title id="menu-title">One Piece</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="filterCrew('Roger Pirates')" color="dark">
+        <ion-img src="assets/img/crew/roger-crew.png"></ion-img>
+        <span>Roger Pirates</span>
+      </ion-item>
+      <ion-item (click)="filterCrew('Whitebeard Pirates')" color="dark">
+        <ion-img src="assets/img/crew/whitebeard-crew.png"></ion-img>
+        <span>Whitebeard Pirates</span>
+      </ion-item>
+      <ion-item (click)="filterCrew('Redhead Pirates')" color="dark">
+        <ion-img src="assets/img/crew/red-head-crew.png"></ion-img>
+        <span>Redhead Pirates</span>
+      </ion-item>
+      <ion-item (click)="filterCrew('Straw Hat Pirates')" color="dark">
+        <ion-img src="assets/img/crew/straw-hat-crew.png"></ion-img>
+        <span>Straw Hat Pirates</span>
+      </ion-item>
+      <ion-item (click)="filterCrew('Beasts Pirates')" color="dark">
+        <ion-img src="assets/img/crew/beast-crew.png"></ion-img>
+        <span>Beasts Pirates</span>
+      </ion-item>
+      <ion-item (click)="filterCrew('Big Mom Pirates')" color="dark">
+        <ion-img src="assets/img/crew/big-mom-crew.png"></ion-img>
+        <span>Big Mom Pirates</span>
+      </ion-item>
+      <ion-item (click)="filterCrew('Baroque Works')" color="dark">
+        <ion-img src="assets/img/crew/baroque-works-crew.png"></ion-img>
+        <span>Baroque Works</span>
+      </ion-item>
+      <ion-item (click)="filterCrew('Revolutionary Army')" color="dark">
+        <ion-img src="assets/img/crew/revolutionary-army-crew.png"></ion-img>
+        <span>Revolutionary Army</span>
+      </ion-item>
+      <ion-item (click)="filterCrew('Blackbeard Pirates')" color="dark">
+        <ion-img src="assets/img/crew/black-beard-crew.png"></ion-img>
+        <span>Blackbeard Pirates</span>
+      </ion-item>
+      <ion-item (click)="filterCrew('All Pirates')" color="dark">
+        <ion-img src="assets/img/crew/all-pirates-jolly-roger.jpg"></ion-img>
+        <span>All Pirates</span>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <p><span>Status Filter</span></p>
+      <ion-item (click)="filterStatus('Alive')" color="dark">
+        <span>Alive</span>
+      </ion-item>
+      <ion-item (click)="filterStatus('Deceased')" color="dark">
+        <span>Deceased</span>
+      </ion-item>
+      <ion-item (click)="filterStatus('Unknown')" color="dark">
+        <span>Unknown</span>
+      </ion-item>
+      <ion-item (click)="filterStatus('All')" color="dark">
+        <span>All</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id=main></ion-router-outlet>
+<ion-content class="banner">
+  <div class="body">
+
+    <ion-slides [options]="slideOpts" id="image-slide">
+      <ion-slide>
+        <ion-img src="assets/img/banner.png"></ion-img>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-img src="assets/img/b3.png"></ion-img>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-img src="assets/img/bg-1.jpg"></ion-img>
+      </ion-slide>
+  
+      <ion-slide>
+        <ion-img src="assets/img/bg-2.jpg"></ion-img>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-img src="assets/img/roger-crew-bg.png"></ion-img>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-img src="assets/img/bg-one-piece-banner.jpg"></ion-img>
+      </ion-slide>
+
+    </ion-slides>
+
+    <ion-item id="rogerQuote" color="dark">
+      <p><span>Fortuna, fama i poder</span>.<br>
+        L’home més poderós del món va ser el rei dels pirates, en <span>Gold Roger</span>.<br>
+        I les paraules que va pronunciar en morir, van llençar rius d’homes a la mar:<br>
+        - <span>Els meus tresors?</span> Ja us els podeu quedar. <span>Aneu-los a buscar!</span> Allà he deixat tot el que vaig aconseguir.<br>
+        <span>Nois! Ja podeu anar a buscar els vostres somnis, a la Grand Line! Ara és l’era, de la gran aventura!<br></span></p>
+      </ion-item>
+      
+    <ion-list>
+      <div class="list">
+        <ion-item *ngFor="let character of characters" (click)="characterDetails(character)">
+          <div class="image-container">
+            <ion-img [src]="character.img_thumbnail"></ion-img>
+            <p>
+              <span>{{character.name}}</span>
+              <span id="bounty">{{character.bounty}}</span>
+              <span>{{character.crew}}</span>
+            </p>
+          </div>
+        </ion-item>
+      </div>
+    </ion-list>
+
+    <ion-item id="footer-quote" color="dark">
+      <h1><span>Fortuna, fama i poder.</span></h1>
+    </ion-item>
+    
+    <ion-item class="video" color="dark">
+      <iframe poster="assets/img/bg-2.jpg" id="rogerVideo" sandbox src="assets/video/goldroger.mp4" frameborder="0"></iframe>
+    </ion-item>  
+
+  </div>
+</ion-content>
+

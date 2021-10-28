@@ -1,0 +1,168 @@
+$mobile-media: "only screen and (max-width:767px)";
+//$tablet-media: "only screen and (min-width : 768px) and (max-width:1023px)";
+$desktop-media: "only screen and (min-width : 768px)";
+
+@mixin text-glowing {
+    text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.37);
+    color: gold;
+    font-family: "ONE PIECE";
+  }
+
+#quote{
+    font-family: "ONE PIECE";
+}  
+
+ion-header{
+    ion-toolbar{
+        background-color: #121212 !important;
+        ion-title{
+            text-align: start;
+            font-size: 24px;
+            @include text-glowing;
+        }
+    }
+}
+
+ion-content{
+    ion-card{
+        background-color: #121212 !important;
+        color: #ffffff ;
+        ion-card-header{
+            ion-card-title{
+                text-align: center;
+                font-size: 30px;
+                @include text-glowing;
+            }
+            ion-card-subtitle{
+                span:first-child{
+                    font-size: 21px;
+                    @include text-glowing;
+                }
+            }
+        }
+    }
+    #back{
+        width: 100px;
+        display: block;
+        margin: 15px auto;
+    }
+}
+
+@media #{$mobile-media} {
+    ion-content{
+        ion-card{
+            ion-card-header{
+                ion-card-subtitle{
+                    padding: 0;
+                }
+            }
+            ion-card-content{
+                ion-img{
+                    width: 100%;
+                    height: 50%;
+                }
+                #quote{
+                    font-size: 24px;
+                    text-align: center;
+                }
+                .card-body{
+                    margin-top: 10px;
+                    span{
+                        font-weight: 600;
+                    }
+                    #status{
+                        display: block;
+                        margin-top: 20px;
+                    }
+                    #power{
+                        text-align: center;
+                        margin-top: 10px;
+                        ion-icon{
+                            font-size: 1.5rem;
+                            color: rgb(140, 0, 255);
+                        }
+                        span{
+                            margin-left: 5px;
+                            text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.37);
+                            color: gold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//@media #{$tablet-media} {}
+
+@media #{$desktop-media} {
+    ion-content{
+        #crew-content{
+            h1{
+                text-align: center;
+            }
+        }
+        ion-card{
+            display:block;
+            width: 65%;
+            height: auto;
+            margin: 20px auto;
+            ion-img{
+                width: 28%;
+                height: 325px;
+                object-fit: cover;
+                float: left;
+                margin-right: 30px;
+            }
+            ion-card-header{
+                ion-card-title{
+                    font-size: 30px;
+                }
+                ion-card-subtitle{
+                    font-size: 15px;
+                }
+                h6{
+                    margin-top: 10px;
+                }
+            }
+            ion-card-content{
+                #quote{
+                    animation: glow 1s ease-in-out infinite alternate;
+                    margin-top: 10px;
+                    text-align: center;
+                    font-size: 26px;
+                }
+                .card-body{
+                    display: flex;
+                    justify-content: space-evenly;
+                    //align-items: center;
+                    overflow: hidden;
+                    margin-top: 25px;
+                    #status{
+                        font-size: 15px;
+                    }
+                    #power{
+                        font-size: 15px;
+                        ion-icon{
+                            color: rgb(140, 0, 255);
+                            margin-right: 4px;
+                        }
+                        span{
+                            text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.37);
+                            color: gold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 2.5px #fff, 0 0 5px #fff, 0 0 7.5px #e60073, 0 0 9.5px #e60073, 0 0 12px #e60073, 0 0 14.5px #e60073, 0 0 17px #e60073;
+    }
+    to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 14px #fff;
+    }
+  }
